@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-card>
+    <el-card class="flex">
       <el-tag>用户名：{{ $store.state.Counter.username }}</el-tag>
       <el-tag type="success">金条：{{ userinfo.bullion }}</el-tag>
       <el-tag type="info">木材：{{ userinfo.wood }}</el-tag>
@@ -19,18 +19,18 @@
       </el-form>
     </el-card>
     <el-card>
-      <el-button type="success" v-if="!$store.state.Counter.isOpen" @click="start">打开游戏</el-button>
+      <el-button type="success" v-if="!$store.state.Counter.isOpen" @click="start">启动游戏</el-button>
       <el-button type="danger" v-else @click="stop">关闭游戏</el-button>
-      <el-button type="primary" v-if="!isAuto" @click="openAuto">开启自动</el-button>
-      <el-button type="danger" v-else @click="closeAuto">关闭自动</el-button>
-      <el-button type="primary" v-if="!isOpenDevTools" @click="openDevTools">开启开发者工具</el-button>
-      <el-button type="danger" v-else @click="closeDevTools">关闭开发者工具</el-button>
-      <el-button @click="log.switch = true">日志</el-button>
-      <el-button @click="restartGame">自动重启游戏</el-button>
+      <el-button type="primary" v-if="!isAuto" @click="openAuto">智能工作</el-button>
+      <el-button type="danger" v-else @click="closeAuto">关闭智能</el-button>
+<!--      <el-button type="primary" v-if="!isOpenDevTools" @click="openDevTools">开启开发者工具</el-button>-->
+<!--      <el-button type="danger" v-else @click="closeDevTools">关闭开发者工具</el-button>-->
+<!--      <el-button @click="log.switch = true">日志</el-button>-->
+<!--      <el-button @click="restartGame">自动重启游戏</el-button>-->
     </el-card>
     <el-card>
       <el-tabs type="border-card" style="width: 100%" :stretch="true">
-        <el-tab-pane label="挖矿">
+        <el-tab-pane label="FarmerWorld">
           <el-table :data="tableData[0]" border height="430px">
             <el-table-column type="index" label="ID">
             </el-table-column>
@@ -53,29 +53,29 @@
             <el-table-column prop="time" label="时间"></el-table-column>
           </el-table>
         </el-tab-pane>
-        <el-tab-pane label="种地">
-          <el-table :data="tableData[2]" border height="430px">
-            <el-table-column type="index" label="ID">
-            </el-table-column>
-            <el-table-column prop="name" label="物品名称"></el-table-column>
-            <el-table-column prop="durable" label="进度"></el-table-column>
-            <el-table-column prop="level" label="等级"></el-table-column>
-            <el-table-column prop="content" label="内容" min-width="150">
-              <template slot-scope="scope">
-                <div v-for="(value,title) in scope.row.content" style="display: flex;justify-content: space-between">
-                  <div>{{ title }}：</div>
-                  <div>{{ value }}</div>
-                </div>
-              </template>
-            </el-table-column>
-            <el-table-column label="点击次数" width="80">
-              <template slot-scope="scope">
-                {{ equipmentClickTimes[2][scope.$index] ? equipmentClickTimes[2][scope.$index].time : 0 }}
-              </template>
-            </el-table-column>
-            <el-table-column prop="time" label="时间"></el-table-column>
-          </el-table>
-        </el-tab-pane>
+<!--        <el-tab-pane label="种地">-->
+<!--          <el-table :data="tableData[2]" border height="430px">-->
+<!--            <el-table-column type="index" label="ID">-->
+<!--            </el-table-column>-->
+<!--            <el-table-column prop="name" label="物品名称"></el-table-column>-->
+<!--            <el-table-column prop="durable" label="进度"></el-table-column>-->
+<!--            <el-table-column prop="level" label="等级"></el-table-column>-->
+<!--            <el-table-column prop="content" label="内容" min-width="150">-->
+<!--              <template slot-scope="scope">-->
+<!--                <div v-for="(value,title) in scope.row.content" style="display: flex;justify-content: space-between">-->
+<!--                  <div>{{ title }}：</div>-->
+<!--                  <div>{{ value }}</div>-->
+<!--                </div>-->
+<!--              </template>-->
+<!--            </el-table-column>-->
+<!--            <el-table-column label="点击次数" width="80">-->
+<!--              <template slot-scope="scope">-->
+<!--                {{ equipmentClickTimes[2][scope.$index] ? equipmentClickTimes[2][scope.$index].time : 0 }}-->
+<!--              </template>-->
+<!--            </el-table-column>-->
+<!--            <el-table-column prop="time" label="时间"></el-table-column>-->
+<!--          </el-table>-->
+<!--        </el-tab-pane>-->
       </el-tabs>
     </el-card>
 
@@ -479,7 +479,7 @@ const intervalLogin = setInterval(() => {
 </script>
 
 <style>
-.el-card__body {
+.flex .el-card__body {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -488,5 +488,9 @@ const intervalLogin = setInterval(() => {
 
 .el-dialog__body {
   padding: 0 20px !important;
+}
+.el-button--success{
+  background-color: #FF7F24 !important;
+  border-color: #FF7F24 !important;
 }
 </style>

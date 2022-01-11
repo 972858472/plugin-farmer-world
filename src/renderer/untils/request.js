@@ -6,7 +6,7 @@ import router from '../router'
 const server = axios.create({
   // baseURL: 'http://auth.yhexs.com/api',
   // baseURL: 'http://test.yhexs.com/api',
-  baseURL: 'http://plugin.admin/api',
+  baseURL: 'http://zayn.plugin.admin/api',
   timeout: 3000,
   successCode: 200
 })

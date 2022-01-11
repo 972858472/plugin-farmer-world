@@ -6,7 +6,7 @@
   width: 100%">
     <el-card class="box-card">
       <el-form @keyup.enter.native="login" style="width: 100%">
-        <h3>登录系统 V{{ version }}</h3>
+        <h3>FarmerWorld V{{ version }}</h3>
         <el-form-item>
           <el-input v-model="loginForm.username" placeholder="用户名"></el-input>
         </el-form-item>
